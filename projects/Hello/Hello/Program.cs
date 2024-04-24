@@ -92,11 +92,27 @@ namespace Hello
             //Console.WriteLine(hello.ToLower());
             //Console.WriteLine(hello.ToUpper());
 
-            string name = Console.ReadLine();
-            string age = Console.ReadLine();
+            //string name = Console.ReadLine();
+            //string age = Console.ReadLine();
 
-            Console.WriteLine($"Your name is {name}. and age is {age}");
-            // dynamic string
+            //Console.WriteLine($"Your name is {name}. and age is {age}");
+
+            //string sufi = "sufiyan is my name got it";
+
+            ////methods 
+
+            //Console.WriteLine(sufi.IndexOf("avs"));
+            //// will take first occurence else -1 return
+
+            //Console.WriteLine(sufi.Substring(5));
+            //// will spilt from index and return new string
+            //// dynamic string
+
+
+            //string etc = "sufiyan is my \" name got it";
+            //// it will print " this in print 
+            //// \n will print new line 
+            //// \t will give tab kind abig space in between
 
             Console.ReadLine();
 
