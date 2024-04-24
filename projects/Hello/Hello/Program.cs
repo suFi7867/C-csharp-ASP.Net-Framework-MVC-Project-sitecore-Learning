@@ -76,16 +76,27 @@ namespace Hello
             //Console.WriteLine(x);
             //Console.WriteLine(x1);
 
-            Console.WriteLine("Enter Your name");
-            string inputName = Console.ReadLine();
+            //Console.WriteLine("Enter Your name");
+            //string inputName = Console.ReadLine();
         
 
-            Console.WriteLine("hi" + " " + inputName + " what is your age");
-            string whatsAge = Console.ReadLine();
-            Console.WriteLine("your age is " + " " + whatsAge);
+            //Console.WriteLine("hi" + " " + inputName + " what is your age");
+            //string whatsAge = Console.ReadLine();
+            //Console.WriteLine("your age is " + " " + whatsAge);
 
-            Console.WriteLine("after 4 years you will be "  + (Convert.ToInt32(whatsAge) + 4 ));
-            // converting str to int then adding
+            //Console.WriteLine("after 4 years you will be "  + (Convert.ToInt32(whatsAge) + 4 ));
+            //// converting str to int then adding
+
+            //string hello = "sFuiskasbh SSShkasdbj ";
+            //Console.WriteLine(hello.Length);
+            //Console.WriteLine(hello.ToLower());
+            //Console.WriteLine(hello.ToUpper());
+
+            string name = Console.ReadLine();
+            string age = Console.ReadLine();
+
+            Console.WriteLine($"Your name is {name}. and age is {age}");
+            // dynamic string
 
             Console.ReadLine();
 
