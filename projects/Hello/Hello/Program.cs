@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,30 @@ namespace Hello
 {
      class Program
     {
+        static void Greet(string name)
+        {
+            Console.WriteLine("THIS IS FUNCTION " + name);
+        }
+
+        static float Average(int a, int b, int c)
+        {
+            float sum = a + b + c;
+            return sum / 3;
+        }
+
+        static float Average(int a, int b)
+        {
+            float sum = a + b;
+            return sum / 3;
+        }
+
+        // new learning > we can create same functions name we have 2 functions with same name - Average -   <
+        // when we pass 3 args it will take first function with 3 args 
+        // when we pass 2 args it will take second function 
+ 
+        // static means this methods belongs to the > Class Program
+        /// void use as a type when function returns nothing 
+
         static void Main(string[] args)
         {
             //int sufi = 21;
@@ -78,7 +103,7 @@ namespace Hello
 
             //Console.WriteLine("Enter Your name");
             //string inputName = Console.ReadLine();
-        
+
 
             //Console.WriteLine("hi" + " " + inputName + " what is your age");
             //string whatsAge = Console.ReadLine();
@@ -113,6 +138,49 @@ namespace Hello
             //// it will print " this in print 
             //// \n will print new line 
             //// \t will give tab kind abig space in between
+            ///
+            //Console.WriteLine("Enter your age to check you can drive or not");
+
+            //string ageStr = Console.ReadLine();
+            //int age = Convert.ToInt32(ageStr);
+
+            //if(age > 18)
+            //{
+            //    Console.WriteLine("you can drive");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("you cant drive");
+            //};
+
+
+
+            // while loops
+            // 
+            int i = 0;
+            while(i < 5)
+            {
+                Console.WriteLine(i);
+                i++;
+            } 
+            // for loop
+            for(int z= 0; z < 5; z++)
+            {
+                Console.WriteLine(z);
+            }
+           
+            // working on functions 
+
+            Greet("sufiyan");
+           float calcAverage1 =  Average(3, 3, 3);
+            float calcAverage2 = Average(2, 6, 8);
+
+
+            Console.WriteLine(Average(2,5)); // working with 2 arg taking second functions logic
+
+            Console.WriteLine(calcAverage1);
+            Console.WriteLine(calcAverage2);
+            Console.WriteLine($"{calcAverage1} , {calcAverage2}");
 
             Console.ReadLine();
 
