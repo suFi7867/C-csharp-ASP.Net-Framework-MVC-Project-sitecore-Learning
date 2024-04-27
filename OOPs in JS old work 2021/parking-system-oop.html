@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+</html>
+
+<script>
+  class Vehicle {
+    #type;
+    #color;
+    #regNUMBER;
+
+    constructor(type, color, num) {
+      this.#type = type;
+      this.#color = color;
+      this.#regNUMBER = num;
+    }
+
+    // we cant access Enscapulation [#regNUMBER] outside
+    // to access Enscapulation outside the CLASS w need to use get
+    get regNUMBER() {
+      return `MH ${this.#regNUMBER}`;
+    }
+
+    get type() {
+      return this.#type;
+    }
+  }
+
+  // car , bike , bus
+
+  class Car extends Vehicle {
+    constructor(color, num) {
+      super("car", color, num);
+    }
+  }
+
+  class Bike extends Vehicle {
+    constructor(color, num) {
+      super("Bike", color, num);
+    }
+  }
+
+  class Bus extends Vehicle {
+    constructor(color, num) {
+      super("Bus", color, num);
+    }
+  }
+
+  ///////////
+
+  let Car1 = new Car("black", 12345);
+
+  console.log(Car1);
+  // created get regNUMBER another method to aceess #regNUMBER outside
+  console.log(Car1.regNUMBER);
+
+  ///////////////
+
+  class parkingLOT {
+    #floors;
+
+    constructor(number) {
+      this.#floors = [];
+      this.numberofFloors = number;
+
+      for (let i = 0; i < number; i++) {
+        this.#floors[i] = new parkingFLOOR(i, number);
+      }
+    }
+
+    findSLOT(type) {
+      // type of vehicle
+
+      for (let i = 0; i < this.numberofFloors; i++) {
+        //iterating through slots
+
+        for (let slot of this.#floors[i].parkingSPOTS) {
+          if (slot.type === type && !slot.isBOOKED) {
+            return { floorNumber: i, slot: slot };
+          }
+        }
+      }
+
+      return false;
+    }
+
+    parkVehicle(vehicle) {
+      let slot = this.findSLOT(vehicle.type);
+
+      slot.slot.book = true;
+      console.log(slot);
+    }
+  }
+
+  class parkingFLOOR {
+    #floorNumber;
+
+    constructor(floorNumber, maxFLOOR) {
+      this.#floorNumber = floorNumber;
+      this.parkingSPOTS = [];
+
+      for (let i = 0; i < maxFLOOR; i++) {
+        if (i == 0) {
+          this.parkingSPOTS.push(new Slot("Bus", i));
+        } else if (i == 1) {
+          this.parkingSPOTS.push(new Slot("Bike", i));
+        } else {
+          this.parkingSPOTS.push(new Slot("Car", i));
+        }
+      }
+    }
+  }
+
+  class Slot {
+    #isBOOKED;
+
+    constructor(type, number) {
+      /// number = > floorNumber
+      this.number = number;
+      this.type = type;
+      this.#isBOOKED = false;
+    }
+
+    get isBOOKED() {
+      return this.#isBOOKED;
+    }
+
+    set book(boolean) {
+      this.#isBOOKED = boolean;
+    }
+  }
+
+  /////////
+
+  let p = new parkingLOT(3);
+  console.log(p);
+
+  let c1 = new Car("black", 7867);
+
+  let b1 = new Bike("black", 7867);
+
+  p.parkVehicle(b1);
+</script>

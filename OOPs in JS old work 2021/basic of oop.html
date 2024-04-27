@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>ADD STUDENT </button>
+    
+</body>
+</html>
+
+<script>
+// OOPS 
+//
+// Admin - Suspend lMS, Add Student, Remove Student
+//
+
+
+  class User{
+
+    constructor(x,y){
+        this.name = x
+        this.id = y
+    }
+
+    signup(username,password){
+
+        // validation of username & password as per rules 
+
+        let isValidated = false 
+
+        // validation of username & validating password methods
+
+        isValidated = this.#validateUSERNAME(username) && this.#validatePASSWORD(password)
+
+        if(isValidated){
+            this.username = username
+            this.password = password
+
+            console.log("REGISTER SUCCESSFULL")
+            students.push(this)
+        }else{
+            console.log("PLese follow rules")
+        }
+
+
+
+    }
+
+    #validateUSERNAME(){
+
+        // checking for rules
+
+        return true
+
+    }
+// ENCAPSULATION
+// cant access this ENCAPSULATION method Private method out of class 
+// using hashtag it will be hidden    
+    #validatePASSWORD(){
+           // checking for password
+           return true
+    }
+
+    login(username,password){
+
+        if(username === this.username && password == this.password){
+            console.log("Log In")
+        }else{
+            console.log("Authentication Failed")
+        }
+
+    }
+
+  }
+
+
+
+
+/// create student class from user 
+//we borrow all properties from USER
+
+class STUDENT extends User{
+
+    constructor(name,id){
+       // borrow properties with extend and super INHERITANCE
+        super(name,id)
+        this.numOFAssignments = 0;
+    }
+
+    submitASSIGNMENT(){
+        this.numOFAssignments++
+    }
+}
+
+
+class Admin extends User{
+
+    constructor(name,id){
+       // borrow properties with extend and super INHERITANCE
+        super(name,id)
+    }
+
+    RemoveSTUDENT(id){
+
+        // remove object from array
+
+        students = students.filter((el)=>{
+
+            return el.id !== id
+        })
+    }
+
+}
+
+
+
+
+let students =[]
+
+
+ let s1 = new STUDENT("suFi",1)
+ let s2 = new STUDENT("naaz",2)
+
+ s1.signup("sufi786","pass123")
+ s2.signup("naaz123","pass123")
+ 
+
+ s1.login("sufi786","pass123")
+ s2.login("naaz123","pass123")
+
+ s1.submitASSIGNMENT()
+
+
+let n = new Admin("Nrupul",3)
+
+ n.RemoveSTUDENT(1)
+
+ console.log(n)
+
+console.log(students)
+
+</script
