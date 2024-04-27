@@ -157,30 +157,46 @@ namespace Hello
 
             // while loops
             // 
-            int i = 0;
-            while(i < 5)
-            {
-                Console.WriteLine(i);
-                i++;
-            } 
-            // for loop
-            for(int z= 0; z < 5; z++)
-            {
-                Console.WriteLine(z);
-            }
-           
-            // working on functions 
-
-            Greet("sufiyan");
-           float calcAverage1 =  Average(3, 3, 3);
-            float calcAverage2 = Average(2, 6, 8);
+            //int i = 0;
+            //while (i < 5)
+            //{
+            //    Console.WriteLine(i);
+            //    i++;
+            //}
+            //// for loop
+            //for (int z = 0; z < 5; z++)
+            //{
+            //    Console.WriteLine(z);
+            //}
 
 
-            Console.WriteLine(Average(2,5)); // working with 2 arg taking second functions logic
+            /////////////////////////////////////////////////////////////////////
 
-            Console.WriteLine(calcAverage1);
-            Console.WriteLine(calcAverage2);
-            Console.WriteLine($"{calcAverage1} , {calcAverage2}");
+            //// working on functions 
+
+            //Greet("sufiyan");
+            //float calcAverage1 = Average(3, 3, 3);
+            //float calcAverage2 = Average(2, 6, 8);
+
+
+            //Console.WriteLine(Average(2, 5)); // working with 2 arg taking second functions logic
+
+            //Console.WriteLine(calcAverage1);
+            //Console.WriteLine(calcAverage2);
+            //Console.WriteLine($"{calcAverage1} , {calcAverage2}");
+
+
+            /////////////////////////////////////////////////////////////////////
+
+
+
+            // OOPs -  Classes and Objects 
+            // Object Oriented Programming 
+            // Object-oriented programming (OOP) is a way of writing computer programs
+            // that organizes code into objects, which are like building blocks containing data and functions.
+            // It emphasizes concepts like inheritance, encapsulation, and polymorphism
+            // to make code more modular, flexible, and reusable
+
 
             Console.ReadLine();
 
