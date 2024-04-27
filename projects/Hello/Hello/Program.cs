@@ -197,6 +197,16 @@ namespace Hello
             // It emphasizes concepts like inheritance, encapsulation, and polymorphism
             // to make code more modular, flexible, and reusable
 
+            // created Player Class file and accessing here directly creating new instance 
+
+            Player myPlayer = new Player();
+
+            // Console.WriteLine(myPlayer.health); // t his is throwirng ERROR as health is PRIVATE 
+            Console.WriteLine(myPlayer.getHealth());
+
+            myPlayer.setHealth(50);
+
+            Console.WriteLine(myPlayer.getHealth());
 
             Console.ReadLine();
 
