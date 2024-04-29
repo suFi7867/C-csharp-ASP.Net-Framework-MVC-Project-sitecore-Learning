@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PurchaseSystem.Models.ProductType>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Product type Id</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.pk_prodtypeId</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
