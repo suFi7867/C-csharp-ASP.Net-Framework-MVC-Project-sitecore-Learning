@@ -9,7 +9,7 @@ namespace FastFood.Models
 {
     public class Cart
     {
-        [Key]
+        [Key] // primary key
         public int Id { get; set; } 
         public int ItemId { get; set; }
 
@@ -17,7 +17,8 @@ namespace FastFood.Models
         public string ApplicationUserId {  get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
-        [Required, MinLength(1)]
+        [Required, MinLength(1)] // data validation
+
         public int Count { get; set; }
     }
 }

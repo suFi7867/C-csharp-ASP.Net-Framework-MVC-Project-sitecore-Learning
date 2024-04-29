@@ -1,0 +1,40 @@
+Quick Summary 
+
+All Models 
+
+ApplicationUser:
+This class extends IdentityUser, which is a class provided by ASP.NET Core Identity for user authentication and authorization.
+It adds some additional properties like Name, City, Address, and PostalCode to the user profile.
+
+Cart:
+Represents a shopping cart item.
+Contains properties like Id, ItemId, Item, ApplicationUserId, ApplicationUser, and Count.
+Uses [Key] attribute to specify the primary key.
+Utilizes [Required] and [MinLength] attributes for data validation.
+
+Category:
+Represents a category for items.
+Contains properties like Id and Title.
+Uses [Key] attribute for the primary key and [Required] attribute for data validation.
+
+Coupon:
+Represents a coupon that can be applied to an order for a discount.
+Contains properties like Id, Title, Type, Discount, MinimumAmount, CouponPicture, and IsActive.
+Includes an enum CouponType to specify the type of coupon.
+
+Item:
+Represents a food item available for purchase.
+Contains properties like Id, Title, Description, Price, CategoryId, Category, SubcategoryId, and SubCategory.
+
+OrderDetails:
+Represents the details of an item in an order.
+Contains properties like Id, OrderHeaderId, OrderHeader, ItemId, Item, Count, Name, Description, and Price.
+
+OrderHeader:
+Represents the header information of an order.
+Contains properties like Id, ApplicationUserId, ApplicationUser, OrderDate, TimeOfPick, DateOfPick, SubTotal, OrderTotal, CouponCode, CouponDis, TransId, OrderStatus, PaymentStatus, Name, and Phone.
+
+SubCategory:
+Represents a subcategory of items.
+Contains properties like Id, Title, and CategoryId.
+Uses [Key] attribute for the primary key and [Required] attribute for data validation.
