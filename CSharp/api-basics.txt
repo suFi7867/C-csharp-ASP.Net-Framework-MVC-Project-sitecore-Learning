@@ -1,0 +1,147 @@
+
+------------------------------------------
+
+Example API
+1 ) Node.js Express
+app.get("/users", async (req, res) => {
+    const users = await User.find();
+    res.json(users);
+});
+
+2 ) C# ASP.NET Core = 
+
+[HttpGet]
+public async Task<IActionResult> GetUsers()
+{
+    var users = await _context.Users.ToListAsync();
+    return Ok(users);
+}
+
+
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+DEep Breakdown 
+
+(1 [HttpGet] =  Attribute , It tells ASP.NET:
+"This method should handle GET requests."
+
+
+(2 public = Access modifier.
+     
+     | Modifier  | Meaning                          |
+     | --------- | -------------------------------- |
+     | public    | Accessible from anywhere         |
+     | private   | Only inside the class            |
+     | protected | Inside class + inherited classes |
+     
+     Example - 
+     public string Name;
+     private int Age;
+
+(3  async = 
+Allows use of await inside the method. 
+
+Without async, this would fail: 
+await _context.Users.ToListAsync();
+
+(4 Task<IActionResult> =  This is the return type.
+
+Think of it as same as in JS :
+Promise<Response>
+
+where (Task = This method runs asynchronously
+      (IActionResult = Represents an HTTP response.
+
+      eg .
+      return Ok(data);          // 200
+      return NotFound();        // 404
+      return BadRequest();      // 400
+      return Unauthorized();    // 401
+
+(5 _context = 
+
+Database connection object.
+Usually injected through Dependency Injection.
+
+Example : 
+
+private readonly AppDbContext _context;
+
+public UserController(AppDbContext context)
+{
+    _context = context;
+}
+
+(6 _context.Users =  Accessing the Users table
+
+SQL Equivalent = SELECT * FROM Users
+Mongoose Equivalent = User
+
+(7 ToListAsync =  Executes the query and fetches records
+
+(8 await _context.Users.ToListAsync(); = 
+
+Waits for database operation to complete.
+JavaScript Equivalent = await User.find();
+
+Without await:
+var users = _context.Users.ToListAsync();
+
+You get a Task, not actual data. 
+same as promise in JS 
+
+(9 return Ok(users)
+Returns HTTP 200 response.
+
+Express Equivalent
+res.status(200).json(users);
+or
+res.json(users);
+
+-------- Complete API FLOW  -------- -------- -------- -------- 
+
+1 ) Request
+GET /api/users
+
+↓
+
+2 ) Controller
+GetUsers()
+
+↓
+
+3 ) Entity Framework
+_context.Users
+
+↓
+
+4 ) SQL Query
+SELECT * FROM Users
+
+↓
+
+5 ) Database Returns Data
+[
+  { 
+    "id": 1,
+    "name": "Sufiyan"
+  }
+]
+
+↓
+
+6 ) ASP.NET Returns
+return Ok(users);
+
+↓
+
+Response
+[
+  {
+    "id": 1,
+    "name": "Sufiyan"
+  }
+]
