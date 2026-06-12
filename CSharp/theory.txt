@@ -108,4 +108,17 @@ Comparison JS Vs C# for easy understanding
 
 | Testing               | Jest                        | xUnit, NUnit                               |
 | Deployment            | Vercel, Render, AWS         | IIS, Azure, AWS                            |
+
 -=--------------------------------------------------------------------------------------
+
+React vs ASP.NET MVC Mindset
+| MERN               | .NET                        |
+| ------------------ | --------------------------- |
+| React Component    | Razor View / React Frontend |
+| Express Route      | Controller Action           |
+| Middleware         | Middleware                  |
+| Mongoose Model     | Entity Framework Model      |
+| MongoDB Collection | SQL Table                   |
+| Node Server        | Kestrel Server              |
+| package.json       | .csproj                     |
+| npm install        | NuGet Package               |
