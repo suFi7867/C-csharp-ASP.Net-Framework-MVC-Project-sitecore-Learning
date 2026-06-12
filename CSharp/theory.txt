@@ -40,3 +40,20 @@ Unlike C and C++, which compile directly into native machine code,
   5 ) Language Integrated Query (LINQ): A powerful feature that allows you to write SQL-like query syntax directly inside C# code to filter, sort, and transform data from collections, XML files, or databases.
   6 ) Cross-Platform Compatibility: While originally bound to Windows,
    modern versions of C# run seamlessly on Linux, macOS, iOS, and Android via .NET Core / .NET 5+
+
+---- Primary Use Cases
+   
+   1. Game Development : C# is the dominant scripting language for the Unity Game Engine. 
+   Unity powers a massive portion of the world's mobile games, 
+   indie PC/console hits (like Hollow Knight and Cuphead), 
+   and virtual reality (VR) software.
+
+   2. Enterprise & Web Applications : Using the ASP.NET Core framework, developers build highly secure, scalable, and fast web APIs, microservices, and dynamic cloud backend applications.
+   
+   3. Desktop & Mobile Apps : 
+    1 ) Windows Desktop: Build native software using Windows Presentation Foundation (WPF) or WinForms.
+    2 ) Cross-Platform UI: Use .NET MAUI (Multi-platform App UI) to write a single C# codebase that compiles into native apps for iOS, Android, macOS, and Windows.
+   
+   4. Cloud and Microservices : 
+   Because of its lightweight container support in modern .NET editions, C# is widely chosen for deploying containerized microservices natively into cloud environments like Microsoft Azure and AWS.
+
