@@ -1,0 +1,18 @@
+1. C (The Foundation)Low-level Architecture: Created by Dennis Ritchie in 1972,
+ C functions very closely to raw machine assembly.
+ Procedural Focus: It structures code around functions and steps rather than objects or data blueprints.
+ No Safety Net: The developer is entirely responsible for allocating and freeing up memory, leaving room for crashes or leaks if handled poorly.
+ Primary Uses: Operating systems (e.g., Linux kernel), embedded systems, and hardware drivers.
+
+
+2. C++ (The Supercharged Extension) 
+Object-Oriented Addition: Developed by Bjarne Stroustrup in 1979 as "C with Classes", 
+it brings modern data organization to C's high-speed framework.Hybrid Nature: Programs can be written entirely procedurally like C, purely object-oriented, or a mix of both.Control: Keeps manual memory capabilities but introduces smart components to help manage resources automatically.
+Primary Uses: High-performance software, modern AAA video games (e.g., Unreal Engine), web browsers, and flight software.
+
+
+3. C# (The Modern Ecosystem) Virtual Execution: Built by Microsoft in 2000, 
+C# code compiles into intermediate language code that runs inside a protective virtual platform known as the Microsoft .NET Framework.
+Java-Like Syntax: It functions much closer to Java than to C or C++, using automated background garbage collection to clean up memory.
+Safety First: Prevents common development errors like memory leaks and pointer corruption by default.
+Primary Uses: Enterprise Windows applications, web services, and mobile/indie game development via the Unity Engine.
