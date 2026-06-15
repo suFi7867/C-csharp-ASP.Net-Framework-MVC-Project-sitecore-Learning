@@ -1,0 +1,35 @@
+
+.NET is a free, open-source software development platform created by Microsoft for building:
+used to build:
+
+Web Applications
+Web APIs
+Desktop Applications
+Mobile Apps
+Cloud Applications
+Microservices
+Enterprise Software
+
+The most common language used with .NET is C# (C-Sharp).
+
+Think of .NET as a complete ecosystem that provides:
+
+Programming languages (C#, F#, VB.NET)
+Runtime (CLR)
+Libraries
+Tools for development
+
+-----------------------------
+Mern vs .NET = for understanding 
+
+| MERN             | .NET                              |
+| ---------------- | --------------------------------- |
+| JavaScript       | C#                                |
+| Node.js Runtime  | .NET Runtime (CLR)                |
+| Express.js       | ASP.NET Core                      |
+| npm packages     | NuGet packages                    |
+| MongoDB          | SQL Server / PostgreSQL / MongoDB |
+| Mongoose         | Entity Framework Core             |
+| app.js/server.js | Program.cs                        |
+| Middleware       | Middleware                        |
+| REST APIs        | REST APIs                         |
