@@ -14,10 +14,20 @@ The most common language used with .NET is C# (C-Sharp).
 
 Think of .NET as a complete ecosystem that provides:
 
+It provides - all together in its ecosystem 
 Programming languages (C#, F#, VB.NET)
 Runtime (CLR)
 Libraries
 Tools for development
+
+------------------------------ Features CIL , CLR , JIT , Garbage Collection
+
+ 1 ) Common Intermediate Language (CIL): When you compile C# code, it converts into an abstract, platform-independent bytecode called CIL. 
+ 2 ) Common Language Runtime (CLR): The Microsoft .NET CLR is the virtual execution engine that runs this bytecode. 
+ It handles essential tasks like security boundaries, type safety, and exception handling.
+ 3 ) Just-In-Time (JIT) Compilation: During execution, the CLR's JIT compiler translates the CIL bytecode into specific native machine instructions optimized for the host computer's CPU architecture.
+ 4 ) Garbage Collection (GC): Developers do not need to manually free memory. A background garbage collector automatically tracks object references and reclaims memory from objects that are no longer being used by the application, drastically reducing memory leaks.
+
 
 -----------------------------
 Mern vs .NET = for understanding 
@@ -33,3 +43,27 @@ Mern vs .NET = for understanding
 | app.js/server.js | Program.cs                        |
 | Middleware       | Middleware                        |
 | REST APIs        | REST APIs                         |
+
+| MERN              | ASP.NET Core MVC            | Purpose                 |
+| ----------------- | --------------------------- | ----------------------- |
+| server.js/app.js  | Program.cs                  | Application Entry Point |
+| Routes            | Controllers                 | Handle Requests         |
+| Models (Mongoose) | Models + Entity Framework   | Database Structure      |
+| React Components  | Views (.cshtml)             | UI Rendering            |
+| Middleware        | Middleware                  | Request Pipeline        |
+| MongoDB           | SQL Server/MySQL/PostgreSQL | Database                |
+| Services          | Services                    | Business Logic          |
+| Public Folder     | wwwroot                     | Static Files            |
+
+--------------------------
+
+History - for the .Net 
+| Year | Event                                    |
+| ---- | ---------------------------------------- |
+| 2002 | .NET Framework 1.0 released by Microsoft |
+| 2016 | .NET Core 1.0 released (cross-platform)  |
+| 2020 | .NET 5 released (unified platform)       |
+| 2021 | .NET 6 (LTS)                             |
+| 2022 | .NET 7                                   |
+| 2023 | .NET 8 (LTS)                             |
+| 2025 | .NET 10 current release cycle            |
