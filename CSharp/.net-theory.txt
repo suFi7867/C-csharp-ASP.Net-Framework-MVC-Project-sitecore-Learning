@@ -1,3 +1,4 @@
+1) What is .Net
 
 .NET is a free, open-source software development platform created by Microsoft for building:
 used to build:
@@ -20,22 +21,58 @@ Runtime (CLR)
 Libraries
 Tools for development
 
+What we can build : 
+
+ 1. WebApI  = 
+
+ [HttpGet]
+ public IActionResult GetUsers()
+ {
+     return Ok(users);
+ }
+
+ 2. MVC Applications = 
+ Model  -> Database
+ View   -> UI
+ Controller -> Logic
+
+ 3. Microservices =  Large companies use .NET for:
+  
+  Banking
+  Insurance
+  Healthcare
+  E-commerce
+
 ------------------------------ Features CIL , CLR , JIT , Garbage Collection
 
- 1 ) Common Intermediate Language (CIL): When you compile C# code, it converts into an abstract, platform-independent bytecode called CIL. 
- 2 ) Common Language Runtime (CLR): The Microsoft .NET CLR is the virtual execution engine that runs this bytecode. 
+ 1. Common Intermediate Language (CIL): When you compile C# code, it converts into an abstract, platform-independent bytecode called CIL. 
+ 
+ 2. Common Language Runtime (CLR): 
+ The Microsoft .NET CLR is the virtual execution engine that runs this bytecode. 
  It handles essential tasks like security boundaries, type safety, and exception handling.
- 3 ) Just-In-Time (JIT) Compilation: During execution, the CLR's JIT compiler translates the CIL bytecode into specific native machine instructions optimized for the host computer's CPU architecture.
- 4 ) Garbage Collection (GC): Developers do not need to manually free memory. A background garbage collector automatically tracks object references and reclaims memory from objects that are no longer being used by the application, drastically reducing memory leaks.
+
+          The engine that runs .NET applications.
+          
+          Responsibilities:
+          1, Memory Management (Garbage Collection)
+          2, Exception Handling
+          3, Security
+          4. Thread Management
+          
+          Similar Node.js Runtime for JavaScript.
+          
+ 3. Just-In-Time (JIT) Compilation: During execution, the CLR's JIT compiler translates the CIL bytecode into specific native machine instructions optimized for the host computer's CPU architecture.
+
+ 4. Garbage Collection (GC): Developers do not need to manually free memory. A background garbage collector automatically tracks object references and reclaims memory from objects that are no longer being used by the application, drastically reducing memory leaks.
 
 
 -----------------------------
-Mern vs .NET = for understanding 
+2 ) Mern vs .NET = for understanding 
 
 | MERN             | .NET                              |
 | ---------------- | --------------------------------- |
 | JavaScript       | C#                                |
-| Node.js Runtime  | .NET Runtime (CLR)                |
+| Node.js Runtime / V8 Engine of chrome  | .NET Runtime (CLR)                |
 | Express.js       | ASP.NET Core                      |
 | npm packages     | NuGet packages                    |
 | MongoDB          | SQL Server / PostgreSQL / MongoDB |
@@ -57,7 +94,7 @@ Mern vs .NET = for understanding
 
 --------------------------
 
-History - for the .Net 
+3 ) History - for the .Net 
 | Year | Event                                    |
 | ---- | ---------------------------------------- |
 | 2002 | .NET Framework 1.0 released by Microsoft |
@@ -67,3 +104,63 @@ History - for the .Net
 | 2022 | .NET 7                                   |
 | 2023 | .NET 8 (LTS)                             |
 | 2025 | .NET 10 current release cycle            |
+
+---------------
+
+4 ) Why was .NET Created?
+
+Microsoft wanted a platform where developers could:
+- Write code once and run on multiple systems
+- Build enterprise applications faster
+- Manage memory automatically
+- Create secure and scalable applications
+
+----------------
+
+Main Components of .NET
+1. C#
+
+The most popular language in .NET.
+
+Console.WriteLine("Hello World");
+
+Similar to Java but more modern.
+m,ore language support .net  languages (C#, F#, VB.NET)
+
+-----------------------
+
+5 ) Cross Platform -
+Runs on: Windows , Linux , macOS
+
+-------------
+
+Dependency Injection = 
+
+Built-in support.
+eg. 
+builder.Services.AddScoped<IUserService, UserService>();
+
+No need for external libraries
+
+------------
+
+6 ) Security
+
+Built-in: Authentication , Authorization , JWT , Identity Management
+
+7 ) Async Programming : 
+public async Task<List<User>> GetUsers()
+{
+    return await _context.Users.ToListAsync();
+}
+
+8 ) Some important things : 
+
+1. ASP.NET Core = Framework for building Web APIs and websites.
+2 . Entity Framework Core (EF Core) = 
+  ORM similar to Mongoose/Sequelize. 
+  _context.Users.ToListAsync();
+3. LINQ = Query data using C#.
+var users = users.Where(x => x.Age > 18);  
+4. NuGet = Package manager like npm.
+eg . dotnet add package AutoMapper
