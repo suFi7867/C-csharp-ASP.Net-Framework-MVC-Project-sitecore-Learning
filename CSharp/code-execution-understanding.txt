@@ -254,3 +254,70 @@ CLR starts.
      
   No recompilation.     
 
+----------------------------------
+
+Step 5: Garbage Collector (GC) : main reason to use .Net 
+
+   In C/C++: 
+   
+        User* user = new User();
+        
+        delete user;
+   
+   Developer must manually free memory.
+   If forgotten: Memory Leak
+   
+   but in In C#: 
+       User user = new User();
+       
+    No delete needed.
+
+  when we create 
+      User user = new User();
+
+  Memory:
+     Heap
+      └── User Object     
+
+  Later : 
+  user = null;   
+  Now nobody references the object.
+    Heap
+     └── User Object (Unused)  
+
+  GC notices and remove the unused 
+
+\----Garbage Collector Flow
+
+     Object Created
+           ↓
+     Application Uses Object
+           ↓
+     Reference Removed
+           ↓
+     GC Detects Unused Object
+           ↓
+     Memory Freed   
+
+-------------------------------------------------------
+
+=== Heap vs Stack
+
+Very common interview question.
+
+- Stack Stores:
+
+int age = 25;
+bool isActive = true;
+
+Stack
+ ├── age
+ └── isActive
+
+- Heap Stores:
+
+User user = new User();
+Heap
+ └── User Object
+
+GC works mainly on Heap.
