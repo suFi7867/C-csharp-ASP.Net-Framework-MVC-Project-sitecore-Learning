@@ -1,0 +1,21 @@
+when we write 
+
+-- Console.WriteLine("Hello World");
+
+lots of things happens in background .
+
+-- Examle below 
+
+      C# Source Code
+            ↓
+      Compiler 
+            ↓
+      CIL (Intermediate Code) > convert to bytecode 
+            ↓
+      CLR > virtual execution engine that runs this bytecode 
+            ↓
+      JIT Compiler >  translates the CIL bytecode into specific native machine
+            ↓
+      Machine Code
+            ↓
+      CPU Executess
