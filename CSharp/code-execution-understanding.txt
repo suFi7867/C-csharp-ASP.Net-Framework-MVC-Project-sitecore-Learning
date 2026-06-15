@@ -8,7 +8,7 @@ lots of things happens in background .
 
       C# Source Code
             ↓
-      Compiler 
+      Compiler CSC
             ↓
       CIL (Intermediate Code) > convert to bytecode 
             ↓
@@ -19,3 +19,238 @@ lots of things happens in background .
       Machine Code
             ↓
       CPU Executess
+
+
+ ======================= GOING DEEPER ----------------------
+
+ in Old C# (.NET Framework / .NET Core 5 and below)  
+ bcz  the CLR needs an entry point (Main) where execution starts.   
+
+ we have to write like , 
+ -----------
+ class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello World");
+    }
+}
+-------------
+
+but in Modern C# (.NET 6, 7, 8, 9, 10)
+if we write 
+
+Console.WriteLine("Hello World");
+
+and in backend and compiler automatically generates 
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello World");
+    }
+}s
+
+=======================   CODE EXECUTION IN DEEPeR =====================
+
+Step 1: C# Source Code
+
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Hello World");
+        }
+    }
+
+--------------------
+
+Step 2: CIL (Common Intermediate Language)
+
+  -When we build the project using command 
+  dotnet build 
+  
+  -The C# compiler (csc) does NOT generate machine code directly.
+  Instead it generates:
+  
+  CIL (Intermediate Language) also called ) IL ,MSIL (
+  
+  -it convert to CIL 
+  C# > CIL    
+  
+  -Example CIL:
+  
+  ldstr "Hello World"
+  call Console.WriteLine
+  ret
+
+  - Why CIL?
+  bcz if any application directly compiled to the windows it will not run in 
+  macOs , and linux 
+
+  for that microsoft created UNIVERSAL LANGUAGE 
+
+         C#
+         ↓
+        CIL
+         ↓
+        Any Platform
+
+  Just like Java:
+    Java
+     ↓
+    Bytecode
+     ↓
+    JVM
+
+  Node.js does something similar.
+
+   JavaScript
+    ↓
+   V8 Engine
+    ↓
+   Bytecode
+    ↓
+   Machine Code
+
+.Net 
+     C#
+      ↓
+     CIL 
+      ↓
+     CLR
+      ↓
+     Machine Code
+
+--------------------
+
+ Step 3: CLR (Common Language Runtime)     
+ CLR is the heart of .NET.
+
+ Node.js Runtime = CLR
+
+ when we run command 
+    dotnet run
+
+CLR starts.
+
+1. CLR responsibilities:   
+  Memory Management (create objects etc )
+  Security - Checks permissions
+  Exception Handling ( try catch )
+  Thread Management
+  Garbage Collection - Automatically frees memory.
+
+2. Real Flow
+
+   Program Starts
+         ↓
+   CLR Loads Assembly (.dll)
+         ↓
+   CLR Reads CIL
+         ↓
+   CLR Calls JIT
+         ↓
+   Native Code Generated
+         ↓
+   CPU Executes
+
+------------------------
+
+ Step 4: JIT (Just-In-Time Compiler)
+
+ 1. for example our code is 
+   int a = 10;
+   int b = 20;
+   
+   Console.WriteLine(a + b);
+  
+   CPU cannot understand CIL.
+   CPU only understands: Binary instructions - eg. 10101010
+  
+   So CLR asks JIT to convert 
+   CIL into Machine Code
+-------------------
+ 2, 
+ ex. C# > CIL > machine native code  
+ C# code CSC Compiler converts C# to CIL 
+ on dotnet build 
+
+ and when we run notnet run 
+
+     Assembly (.dll)
+           ↓
+     CLR Loads Assembly
+           ↓
+     CLR Reads CIL
+           ↓
+     CLR Invokes JIT Compiler
+           ↓
+     JIT Converts CIL → Native Machine Code
+           ↓
+     CPU Executes 
+     -------------------------
+           In Simple Way 
+           Build Time
+           ==========
+           C# → CIL
+           
+           Run Time
+           ========
+           CIL → Machine Code
+
+ JIT compiles only when needed.
+
+ 3. Why "Just In Time"?   -------- IMPORTANT
+   Because compilation happens: 
+   Just Before Execution , Not during build.
+
+ 4. Example:
+      
+      MethodA();
+      MethodB();
+      MethodC();
+      
+      If only MethodA runs:
+      
+      MethodA -> JIT Compile
+      MethodB -> Not Compiled Yet
+      MethodC -> Not Compiled Yet
+      
+      This saves memory.  
+
+5. Example
+
+    ----First call:
+     
+        Calculate();
+     
+    ---- CLR:
+     
+     Is machine code available?
+           ↓
+     No
+           ↓
+     Run JIT
+           ↓
+     Generate Machine Code
+           ↓
+     Store It
+           ↓
+     Execute
+     
+    ---- Second call:
+     
+     Calculate();
+     
+    ---- CLR:
+     
+     Machine code exists?
+           ↓
+     Yes
+           ↓
+     Execute Directly
+     
+  No recompilation.     
+
