@@ -1,0 +1,202 @@
+Folder Structure MVC 
+
+MyProject/
+│
+├── Controllers/
+│   └── HomeController.cs
+│
+├── Models/
+│   └── User.cs
+│
+├── Views/
+│   ├── Home/
+│   │   └── Index.cshtml
+│   └── Shared/
+│       └── _Layout.cshtml
+│
+├── wwwroot/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+├── Data/
+│   └── AppDbContext.cs
+│
+├── Services/
+│   └── UserService.cs
+│
+├── Migrations/
+│
+├── appsettings.json
+├── Program.cs
+└── MyProject.csproj
+
+
+| MERN              | ASP.NET Core MVC            | Purpose                 |
+| ----------------- | --------------------------- | ----------------------- |
+| server.js/app.js  | Program.cs                  | Application Entry Point |
+| Routes            | Controllers                 | Handle Requests         |
+| Models (Mongoose) | Models + Entity Framework   | Database Structure      |
+| React Components  | Views (.cshtml)             | UI Rendering            |
+| Middleware        | Middleware                  | Request Pipeline        |
+| MongoDB           | SQL Server/MySQL/PostgreSQL | Database                |
+| Services          | Services                    | Business Logic          |
+| Public Folder     | wwwroot                     | Static Files            |
+
+
+1 ) Program.cs
+
+   in MERN
+   const express = require("express");
+   const app = express();
+   
+   app.listen(3000);
+   ------------------
+   in ASP.NET
+   var builder = WebApplication.CreateBuilder(args);
+   
+   builder.Services.AddControllersWithViews();
+   
+   var app = builder.Build();
+   
+   app.MapControllerRoute(
+       name: "default",
+       pattern: "{controller=Home}/{action=Index}/{id?}");
+   
+   app.Run();
+
+Responsibility : 
+   Start application
+   Configure services
+   Configure routes
+   Dependency Injection
+
+
+2 ) Controllers     
+
+   in JS 
+   router.get("/users", getUsers);
+   -----
+   in ASP.NET 
+   public class UserController : Controller
+   {
+       public IActionResult GetUsers()
+       {
+           return View();
+       }
+   }
+   
+   Responsibility = 
+     Receive HTTP Request
+     Call Service
+     Return View or JSON
+
+3 ) Models   
+    in MERN - mongoose 
+
+    const UserSchema = new mongoose.Schema({
+        name:String,
+        email:String
+    });
+    -----
+    in ASP.NET
+    public class User
+    {
+        public int Id { get; set; }
+    
+        public string Name { get; set; }
+    
+        public string Email { get; set; }
+    }
+  Responsibility = 
+    Database Entity
+    Data Transfer
+    Validation
+
+
+4 )  View  : 
+     in MERN 
+     function Home() {
+        return <h1>Hello</h1>
+     }
+     
+     in ASP.NET MVC 
+     <h1>Hello</h1>
+     
+     Views/Home/Index.cshtml
+
+
+5 ) Data Folder : 
+
+   public class AppDbContext : DbContext
+   {
+      public DbSet<User> Users { get; set; }
+   }
+   
+   
+   MERN Equivalent
+   mongoose.connect(...)
+   
+   This is where Entity Framework talks to SQL Server.     
+
+6 ) Services Folder
+
+    public class UserService
+    {
+       public List<User> GetAllUsers()
+       {
+          ...
+       }
+    }
+    
+    MERN Equivalent 
+    services/userService.js
+    
+    Responsibility =
+    Business Logic
+    
+    Controller should stay thin:   
+    Controller
+       ↓
+    Service
+       ↓
+    Database   
+
+
+7 ) wwwroot : similar to public folder in mern 
+    it for static files 
+
+    css , js , images , fonts    
+   
+8 ) appsettings.json
+
+    in mern we have ENV 
+    here 
+      
+      ASP.NET
+      {
+        "ConnectionStrings": {
+          "DefaultConnection":
+            "Server=.;Database=TestDb;"
+        }
+      }
+
+
+9 )  Migrations : 
+     in MERN
+     
+     Mongo creates collections automatically.
+     
+     in ASP.NET - command below 
+
+       --Add-Migration InitialCreate
+       --Update-Database
+     
+     Generates: 
+     Migrations/
+     
+     it Contains SQL schema changes.
+     
+     ex. Version control for Database      
+
+     
