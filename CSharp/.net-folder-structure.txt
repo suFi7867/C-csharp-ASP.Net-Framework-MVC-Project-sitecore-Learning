@@ -199,4 +199,47 @@ Responsibility :
      
      ex. Version control for Database      
 
-     
+------------------------------------------------------
+
+1 ) Request Flow
+ in MERN
+      Client
+       ↓
+      Route
+       ↓
+      Controller
+       ↓
+      Service
+       ↓
+      MongoDB
+       ↓
+      Response
+      
+  in ASP.NET MVC
+      Browser
+       ↓
+      Controller
+       ↓
+      Service
+       ↓
+      DbContext
+       ↓
+      SQL Server
+       ↓
+      View
+       ↓
+      Browser
+
+2 ) Naming Rules (Important Interview Question)
+
+Controller Must end with: Controller
+ex : HomeController , UserController
+
+3 ) View Location : 
+    if controller: 
+       HomeController
+    returns:
+       return View();
+
+MVC automatically looks for:
+Views/Home/Index.cshtml
